@@ -2,22 +2,91 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>The Library of You</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<title>Light that left the day you arrived</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="glow"></div>
-<div id="bar">📚 0 / 5 books read</div>
-<button id="snd" aria-label="sound">🔊</button>
-<header>
-  <h1>The Library of You</h1>
-  <div class="sub" id="sub">tap a softly glowing book ✨</div>
-  <button class="btn" id="fin" onclick="summary()">✨ See the story of you</button>
-</header>
-<div id="case"></div>
-<div id="sum"><div class="w" id="sw"></div></div>
+<canvas id="sky"></canvas>
+
+<!-- 1. Welcome -->
+<section class="scene rise on">
+  <small>a little something, written in starlight</small>
+  <h1 id="nm"></h1>
+  <p>Today, I want to show you something the sky has been keeping a secret.</p>
+  <p><em>Ready?</em></p>
+  <button class="btn" data-go="1">Begin</button>
+</section>
+
+<!-- 2. Light isn't instant -->
+<section class="scene rise">
+  <p>Light isn't instant.</p>
+  <p>It travels, quietly, across the dark, for years and years before it ever reaches us.</p>
+  <p>So when you look up at a star, you're seeing <em>the past</em>, a message sent long ago.</p>
+  <button class="btn" data-go="2">Keep going</button>
+</section>
+
+<!-- 3. Vega's journey -->
+<section class="scene" id="s3">
+  <small>a real star, 25 light-years away</small>
+  <h1 class="tight">Vega</h1>
+  <div id="trk">⭐<div id="rail"><div id="fill"></div><div id="photon"></div></div>🌍</div>
+  <div id="yy">2001</div>
+  <div id="ag"></div>
+  <small id="rem"></small>
+  <p id="ms"></p>
+  <div id="chips"></div>
+  <input type="range" id="sl" min="0" max="25" value="0" aria-label="Years of travel">
+  <small>drag to travel through the years, or let it guide you</small>
+  <div id="buttons">
+    <button class="btn ghost" id="playBtn">▶ Play</button>
+    <button class="btn" data-go="3">And then…</button>
+  </div>
+</section>
+
+<!-- 4. Birthday moons -->
+<section class="scene" id="s4">
+  <p>The moon watched every birthday too.<br><small>Tap any moon.</small></p>
+  <div id="big" title="Make a wish"></div>
+  <div id="bi"></div>
+  <div id="moons"></div>
+  <div id="buttons">
+  <button class="btn ghost" id="wishBtn">Make a wish 🌠</button>
+  <button class="btn" data-go="4">One more thing</button>
+  </div>
+</section>
+
+<!-- 5. Finale -->
+<section class="scene rise">
+  <p>Somewhere out there, light is leaving a star right now.</p>
+  <p>It will arrive years from today, and it will find you <em>still shining.</em></p>
+  <h1 id="fin"></h1>
+  <p>Happy Birthday My Beloved✨<br><small>The universe and me are soo lucky to have you.</small></p>
+</section>
+
+<!-- Wish box -->
+<div id="modal" class="modal" aria-hidden="true">
+  <form id="wishForm" class="card" autocomplete="off">
+    <button type="button" class="x" id="closeWish" aria-label="Close">×</button>
+    <div id="wishFormBody">
+      <h2>Make a wish 🌙</h2>
+      <small>Whisper it here. It will travel to the one who loves you, faster than light.</small>
+      <textarea id="wishText" maxlength="800" placeholder="I wish…" required></textarea>
+      <input type="checkbox" name="botcheck" id="botcheck" style="display:none" tabindex="-1">
+      <button type="submit" class="btn" id="sendBtn">Send my wish ✨</button>
+      <div id="err"></div>
+    </div>
+    <div id="wishDone" hidden>
+      <h2>Your wish is on its way ✨</h2>
+      <p>It has left Earth like starlight. Some wishes take years to arrive, but this one is already glowing.</p>
+      <button type="button" class="btn" id="doneBtn">Close</button>
+    </div>
+  </form>
+</div>
+
+<div id="dots"></div>
 <script src="script.js"></script>
 </body>
 </html>
